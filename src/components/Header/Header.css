@@ -1,0 +1,9 @@
+.header {
+    background-color: #232833;
+    padding: 15px;
+    text-align: center;
+}
+
+.header .icon {
+    text-align: left;
+}
