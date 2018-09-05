@@ -1,0 +1,27 @@
+.menu {
+    background-color: #3A4354;
+    width: 64px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: center;
+}
+
+.menu .icon {
+    display: inline-flex;
+    width: 100%;
+    min-height: 28px;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu .icon:hover {
+    cursor: pointer;
+    background-color: #232833;
+}
+
+.menu .icon.active {
+    background-color: #232833;
+}
