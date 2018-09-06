@@ -1,3 +1,10 @@
+export const STATUS = [
+    'Confirmed',
+    'Seated',
+    'Checked out',
+    'Cancelled'
+]
+
 export const MENU = [
     {
         key: 'logo',

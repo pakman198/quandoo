@@ -1,8 +1,7 @@
 .header {
     background-color: #232833;
     padding: 13px;
-    text-align: center;
-    position: relative;
+    text-align: left;
 }
 
 .header .icon {

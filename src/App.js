@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
+import ReservationList from './components/ReservationList/ReservationList';
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
         <div className="container">
           <Menu />
           <main className="main-content">
-            Hola Mundo
+            <ReservationList />
           </main>
         </div>
       </div>

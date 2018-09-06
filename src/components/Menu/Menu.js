@@ -13,11 +13,9 @@ const STROKE_LINEJOIN = "round";
 
 const icons = MENU.filter(item => item.key !== 'logo' ? item : null);
 const menuItems = icons.map(({ key, height, path, viewBox, width }, index )=> {
-    console.log({index, key})
     return (
-        <div className={`menu-item ${key === 2 ? 'active' : ''}`} >
+        <div key={key} className={`menu-item ${key === 2 ? 'active' : ''}`} >
             <Icon 
-                key={path[0]}
                 fill={NONE}
                 height={height}
                 stroke={STROKE}

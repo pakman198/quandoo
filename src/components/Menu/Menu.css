@@ -11,7 +11,7 @@
 .menu-item {
     display: inline-flex;
     width: 100%;
-    min-height: 28px;
+    height: 64px;
     padding: 10px 0;
     align-items: center;
     justify-content: center;

@@ -27,7 +27,7 @@ const Icon = (props) => {
         );
     });
     return (
-        <div className="icon">
+        <div className="quandoo-icon">
             <svg width={width} height={height} viewBox={viewBox}>
                 {paths}
             </svg>
