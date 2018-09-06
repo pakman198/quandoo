@@ -8,7 +8,7 @@
     align-content: center;
 }
 
-.menu .icon {
+.menu-item {
     display: inline-flex;
     width: 100%;
     min-height: 28px;
@@ -17,11 +17,11 @@
     justify-content: center;
 }
 
-.menu .icon:hover {
+.menu-item:hover {
     cursor: pointer;
     background-color: #232833;
 }
 
-.menu .icon.active {
+.menu-item.active {
     background-color: #232833;
 }

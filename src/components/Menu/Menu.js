@@ -12,20 +12,22 @@ const STROKE_LINECAP = "round";
 const STROKE_LINEJOIN = "round";
 
 const icons = MENU.filter(item => item.key !== 'logo' ? item : null);
-const menuItems = icons.map(({ height, path, viewBox, width })=> {
+const menuItems = icons.map(({ key, height, path, viewBox, width }, index )=> {
+    console.log({index, key})
     return (
-        <Icon 
-            key={path[0]}
-            className="menu-item"
-            fill={NONE}
-            height={height}
-            stroke={STROKE}
-            strokeLinecap={STROKE_LINECAP}
-            strokeLinejoin={STROKE_LINEJOIN}
-            strokeWidth={STROKE_WIDTH}
-            path={path}
-            viewBox={viewBox}
-            width={width} />
+        <div className={`menu-item ${key === 2 ? 'active' : ''}`} >
+            <Icon 
+                key={path[0]}
+                fill={NONE}
+                height={height}
+                stroke={STROKE}
+                strokeLinecap={STROKE_LINECAP}
+                strokeLinejoin={STROKE_LINEJOIN}
+                strokeWidth={STROKE_WIDTH}
+                path={path}
+                viewBox={viewBox}
+                width={width} />
+        </div>
     );
 });
 
