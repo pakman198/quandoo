@@ -2,17 +2,21 @@ import './Reservations.css';
 import React from 'react';
 
 import moment from 'moment';
-import { STATUS } from '../../../constants/appConstants';
+import { STATUS, SORTBY_NAME, SORTBY_GUESTS } from '../../../constants/appConstants';
 
 class Reservations extends React.Component {
-    handleGuestNumber = (e) => {
+    handleGuestClick = (e) => {
         e.preventDefault();
-        alert('CLICK');
+        const { sortHandler } = this.props;
+        
+        sortHandler(SORTBY_GUESTS);
     }
 
-    handleGuestName = (e) => {
+    handleNameClick = (e) => {
         e.preventDefault();
-        alert('CLICK');
+        const { sortHandler } = this.props;
+        
+        sortHandler(SORTBY_NAME);
     }
 
     renderTableHeaders() {
@@ -23,10 +27,10 @@ class Reservations extends React.Component {
                 <th>Date</th>
                 <th>Shift</th>
                 <th>
-                    <a href="#" onClick={this.handleGuestNumber}>Guest Number</a>
+                    <a href="#" onClick={this.handleGuestClick}>Guest Number</a>
                 </th>
                 <th>
-                    <a href="#" onClick={this.handleGuestName}>Guest Name</a>
+                    <a href="#" onClick={this.handleNameClick}>Guest Name</a>
                 </th>
                 <th>Area</th>
                 <th>Guest Notes</th>
@@ -35,9 +39,9 @@ class Reservations extends React.Component {
     }
 
     renderTableRows() {
-        const { data: { reservations }} = this.props;
+        const { data } = this.props;
 
-        return reservations.map(r => {
+        return data.map(r => {
             const {
                 id,
                 status,

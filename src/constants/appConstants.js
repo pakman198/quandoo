@@ -1,3 +1,5 @@
+export const SORTBY_NAME = 'name';
+export const SORTBY_GUESTS = 'guests'
 export const STATUS = [
     {
         key: 'CONFIRMED',
