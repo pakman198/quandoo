@@ -18,19 +18,35 @@ class ReservationList extends React.Component {
                 shift: '',
                 area: ''
             },
-            search: ''
+            search: '',
+            searchResults: mockData.reservations
         }
 
         this.sortGuestsHandler = this.sortGuestsHandler.bind(this);
         this.filterHandler = this.filterHandler.bind(this);
+        this.searchHandler = this.searchHandler.bind(this);
     }
 
     filterHandler() {
         
     }
 
-    searchHandler() {
+    searchHandler(value) {
+        console.log(this.state);
+        const { reservations } = this.state;
+        const filterdResults = reservations.filter(r => {
+            const { firstName, lastName } = r.customer;
 
+            if(firstName.toLowerCase().includes(value) || lastName.toLowerCase().includes(value)) {
+                return r;
+            }
+
+            return null;
+        });
+
+        this.setState({
+            searchResults: filterdResults
+        });
     }
 
     sortGuestsHandler(sortKey) {
@@ -85,9 +101,11 @@ class ReservationList extends React.Component {
         return (
             <div id="reservationList">
                 <h1>Reservation List</h1>
-                <Filters changeHandler={this.filterHandler} />
+                <Filters 
+                    changeHandler={this.filterHandler} 
+                    searchHandler={this.searchHandler} />
                 <Reservations 
-                    data={this.state.reservations} 
+                    data={this.state.searchResults} 
                     sortHandler={this.sortGuestsHandler}
                     nameOrder={sortName}
                     guestsOrder={sortGuests} />

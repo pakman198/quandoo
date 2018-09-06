@@ -7,6 +7,7 @@ import { STATUS } from '../../../constants/appConstants'
 
 class Filters extends React.Component {
 
+
     renderStatus() {
         const status = STATUS.map(s => s.displayName);
         return (
@@ -14,6 +15,13 @@ class Filters extends React.Component {
                 labels: status
               }} />
         );
+    }
+
+    changeHandler = (e) => {
+        const { value } = e.target;
+        const { searchHandler } = this.props;
+
+        searchHandler(value);
     }
 
     render() {
@@ -24,7 +32,12 @@ class Filters extends React.Component {
                     <span>Filter by: </span>
                     { status }
                 </div>
-                <div className="search-bar"></div>
+                <div className="search-bar">
+                    <input 
+                        type="text" 
+                        placeholder="Search Reservation" 
+                        onChange={this.changeHandler} />
+                </div>
             </div>
         )
     }

@@ -2,4 +2,16 @@
     background-color: #e5e5e5;
     padding: 15px 20px;
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
+
+.filters {
+    display: inline-flex;
+    flex-grow: 1;
+}
+
+.search-bar {
+    display: inline-flex;
+}
+
