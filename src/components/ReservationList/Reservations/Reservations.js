@@ -65,7 +65,7 @@ class Reservations extends React.Component {
                     </td>
                     <td>
                         <span className={ `status ${className}` }></span>
-                        { displayName }
+                        <span className="status-value">{ displayName }</span>
                     </td>
                     <td>{ businessDate }</td>
                     <td>{ `${moment(start).format('HH:mm')} ${shift}` }</td>

@@ -29,8 +29,13 @@
     color: #96A3B6;
 }
 
+.status-value {
+    display: inline-block;
+    vertical-align: middle;
+}
 .status {
     display: inline-block;
+    vertical-align: middle;
     width: 8px;
     height: 8px;
     border-radius: 100px;
