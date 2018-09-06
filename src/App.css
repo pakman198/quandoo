@@ -1,11 +1,11 @@
-html, body, .App, #root {
-  height: 100%;
-}
 .container {
   display: flex;
+  height: 90vh;
+  overflow: hidden;
 }
 
 .container .main-content {
   flex-grow: 1;
   padding: 35px;
+  overflow: auto;
 }

@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Filters from './Filters/Filters'
+import Reservations from './Reservations/Reservations'
+
 import { mockData } from '../../data';
 
 class ReservationList extends React.Component {
@@ -10,12 +12,14 @@ class ReservationList extends React.Component {
             reservations: mockData
         }
     }
+
     render() {
         return (
-            <Fragment>
+            <div id="reservationList">
                 <h1>Reservation List</h1>
                 <Filters />
-            </Fragment>
+                <Reservations data={mockData}/>
+            </div>
         )
     }
 }

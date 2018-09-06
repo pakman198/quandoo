@@ -8,9 +8,10 @@ import { STATUS } from '../../../constants/appConstants'
 class Filters extends React.Component {
 
     renderStatus() {
+        const status = STATUS.map(s => s.displayName);
         return (
             <CheckboxDropdown {...{
-                labels: STATUS
+                labels: status
               }} />
         );
     }

@@ -1,8 +1,28 @@
 export const STATUS = [
-    'Confirmed',
-    'Seated',
-    'Checked out',
-    'Cancelled'
+    {
+        key: 'CONFIRMED',
+        displayName: 'Confirmed',
+        className: 'confirmed',
+        color: '#23C65B'
+    },
+    {
+        key: 'SEATED',
+        displayName: 'Seated',
+        className: 'seated',
+        color: '#3EA3EC'
+    },
+    {
+        key: 'CHECKED OUT',
+        displayName: 'Checked-out',
+        className: 'checked-out',
+        color: '#E3E7EA'
+    },
+    {
+        key: 'NOT CONFIRMED',
+        displayName: 'Not Confirmed',
+        className: 'not-confirmed',
+        color: '#F8B333'
+    }
 ]
 
 export const MENU = [

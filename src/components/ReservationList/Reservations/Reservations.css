@@ -1,0 +1,54 @@
+.reservationTable{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.reservationTable thead tr {
+    border-bottom: 1px solid #DEE3EC;
+}
+
+.reservationTable thead th {
+    text-align: left;
+}
+
+.reservation {
+    border: 1px solid #DEE3EC;
+    border-top: 0;
+}
+
+.reservation td {
+    padding: 20px 0;
+}
+
+.reservation .check {
+    padding: 20px;
+}
+
+.notes {
+    font-style: italic;
+    color: #96A3B6;
+}
+
+.status {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    margin-right: 5px;
+}
+
+.checked-out {
+    background-color: #E3E7EA;
+}
+
+.confirmed {
+    background-color: #23C65B;
+}
+
+.seated {
+    background-color: #3EA3EC;
+}
+
+.not-confirmed {
+    background-color: #F8B333;
+}
