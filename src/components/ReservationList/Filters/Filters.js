@@ -2,12 +2,11 @@ import './Filters.css';
 import React from 'react';
 
 import { CheckboxDropdown } from 'pivotal-ui/react/checkbox-dropdown';
+import MultiSelect from '../../common/MultiSelect/MultiSelect'
 
 import { STATUS } from '../../../constants/appConstants'
 
 class Filters extends React.Component {
-
-
     renderStatus() {
         const status = STATUS.map(s => s.displayName);
         return (
@@ -25,12 +24,11 @@ class Filters extends React.Component {
     }
 
     render() {
-        const status = this.renderStatus();
         return(
             <div className="filter-bar">
                 <div className="filters">
                     <span>Filter by: </span>
-                    { status }
+                    <MultiSelect />
                 </div>
                 <div className="search-bar">
                     <input 

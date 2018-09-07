@@ -1,0 +1,113 @@
+.criteria-list {
+    margin: 0 5px;
+    padding: 0;
+    position: relative;
+    width: 140px;
+}
+
+.criteria-list button {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.criteria-list .drop-arrow {
+    position: relative;
+}
+
+.criteria-list .aui-button {
+    padding: 5px;
+    width: 100%;
+}
+
+.aui-button.aui-button-subtle {
+    background: #fff;
+    color: #707070;
+}
+
+.aui-button, a.aui-button, .aui-button:visited {
+    background: #f2f2f2;
+    background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    font-size: inherit;
+    padding: 4px 10px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #ffffff;
+    vertical-align: baseline;
+    white-space: nowrap;
+    outline: none;
+}
+
+.aui-button.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.criteria-list .fieldValue {
+    display: block;
+    text-align: left;
+}
+
+.criteria-list .drop-arrow:after {
+    border: 4px solid transparent;
+    border-top-color: #111;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 7px;
+    width: 0;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.rm-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    width: 138px;
+    padding: 5px 0;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.rm-dropdown-menu ul {
+    list-style: none;
+    padding: 0 5px;
+    margin: 0;
+    font-size: 14px;
+    text-align: left;
+}
+
+.select-option {
+    width: 100%;
+    display: inline-block;
+}
+
+.select-option:hover {
+    cursor: pointer;
+}
+
+.open {
+    display: block !important;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
+}
+
