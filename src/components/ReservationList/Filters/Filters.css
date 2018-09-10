@@ -1,5 +1,5 @@
 .filter-bar {
-    background-color: #e5e5e5;
+    background-color: #F0F2F5;
     padding: 15px 20px;
     margin-top: 20px;
     display: flex;
@@ -14,5 +14,23 @@
 
 .search-bar {
     display: inline-flex;
+    position: relative;
 }
 
+.search-bar .fa-search {
+    vertical-align: middle;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #96A3B6;
+}
+
+.search-bar input {
+    padding: 10px 10px 10px 30px;
+}
+
+.date-filter {
+    padding: 10px;
+    width: 140px;
+    border: 1px solid #DEE3EC;
+}

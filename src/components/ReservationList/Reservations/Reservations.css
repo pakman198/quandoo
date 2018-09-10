@@ -1,6 +1,7 @@
 .reservationTable{
     width: 100%;
     margin-top: 50px;
+    border-collapse: collapse;
 }
 
 .reservationTable thead tr {
@@ -9,6 +10,11 @@
 
 .reservationTable thead th {
     text-align: left;
+}
+
+.reservationTable thead th a {
+    color: #000000;
+    text-decoration: none;
 }
 
 .reservation {

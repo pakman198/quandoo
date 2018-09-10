@@ -16,9 +16,8 @@ class ReservationList extends React.Component {
                 status: '',
                 date: '',
                 shift: '',
-                area: ''
+                area: '',
             },
-            search: '',
             searchResults: mockData.reservations
         }
 
@@ -27,12 +26,30 @@ class ReservationList extends React.Component {
         this.searchHandler = this.searchHandler.bind(this);
     }
 
-    filterHandler() {
-        
+    filterHandler(filter, value) {
+        this.setState({
+            filters: {...this.state.filters, [filter]: value}, 
+        }, this.loopFilters);
+    }
+
+    loopFilters() {
+        const { filters, reservations } = this.state;
+        var results = reservations;
+        for(var f in filters) {
+            if(Array.isArray(filters[f]) && filters[f].length > 0) {
+                results = results.filter(r => {
+                    return filters[f].includes(r[f]) ? r : null;
+                });
+            }
+        }
+
+        console.log({results});
+        this.setState({
+            searchResults: results
+        });
     }
 
     searchHandler(value) {
-        console.log(this.state);
         const { reservations } = this.state;
         const filterdResults = reservations.filter(r => {
             const { firstName, lastName } = r.customer;
@@ -50,19 +67,19 @@ class ReservationList extends React.Component {
     }
 
     sortGuestsHandler(sortKey) {
-        const { sortOrder, reservations } = this.state;
+        const { sortOrder, searchResults } = this.state;
         let newOrder;
 
         if ( sortKey === SORTBY_GUESTS ) {
             if(!sortOrder) {
-                newOrder = reservations.sort(( a, b )=> a.quantity - b.quantity);
+                newOrder = searchResults.sort(( a, b )=> a.quantity - b.quantity);
             }else {
-                newOrder = reservations.sort(( a, b )=> b.quantity - a.quantity);
+                newOrder = searchResults.sort(( a, b )=> b.quantity - a.quantity);
             }   
 
         } else if ( sortKey === SORTBY_NAME ) {
             if(!sortOrder) {
-                newOrder = reservations.sort(( a, b )=> {
+                newOrder = searchResults.sort(( a, b )=> {
                     if (a.customer.lastName < b.customer.lastName) {
                         return -1;
                     }
@@ -75,7 +92,7 @@ class ReservationList extends React.Component {
                     return 0;
                 });
             }else {
-                newOrder = reservations.sort(( a, b )=> {
+                newOrder = searchResults.sort(( a, b )=> {
                     if (a.customer.lastName < b.customer.lastName) {
                         return 1;
                     }
@@ -97,15 +114,18 @@ class ReservationList extends React.Component {
     }
 
     render() {
-        const { sortName, sortGuests } = this.state;
+        const { sortName, sortGuests, reservations, searchResults } = this.state;
+        const dates = reservations.map(({businessDate}) => businessDate);
+
         return (
             <div id="reservationList">
                 <h1>Reservation List</h1>
                 <Filters 
+                    reservationDates={dates}
                     changeHandler={this.filterHandler} 
                     searchHandler={this.searchHandler} />
                 <Reservations 
-                    data={this.state.searchResults} 
+                    data={searchResults} 
                     sortHandler={this.sortGuestsHandler}
                     nameOrder={sortName}
                     guestsOrder={sortGuests} />

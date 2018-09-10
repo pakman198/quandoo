@@ -1,9 +1,12 @@
 import './MultiSelect.css';
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { CHECKBOX, RADIO } from '../../../constants/appConstants';
 
 class MultiSelect extends React.Component {
     static defaultProps = {
-        type: 'radio',
+        type: CHECKBOX,
         options: [
             {name: 'Test 1', value: 1},
             {name: 'Test 2', value: 2},
@@ -11,6 +14,7 @@ class MultiSelect extends React.Component {
         ],
         label: 'MultiSelect',
         groupName: 'multiselect',
+
     };
 
     state = {
@@ -47,29 +51,27 @@ class MultiSelect extends React.Component {
 
     optionHandler = (e) => {
         const { checked } = this.state;
-        const { type } = this.props;
+        const { type, changeHandler, groupName } = this.props;
         const { value } = e.target;
         let selected;
-        console.log({value});
 
         if( type === 'radio' ) {
-            selected = [value];
+            selected = value === 'ALL' ? [] : [value];
         }else{
             if (checked.includes(value) ) {
                 selected = checked.filter(item => {
                     return value !== item ? item : ''
                 });
-                console.log({selected});
             }else{
-                selected = [...checked, value]
-                console.log({selected});
-                
+                selected = [...checked, value];
             } 
         } 
         
         this.setState({
             checked: selected
         });
+
+        changeHandler(groupName, selected);
     }
 
     render() {
@@ -90,7 +92,10 @@ class MultiSelect extends React.Component {
                         </div>
                     </div>
                 </button>
-                <div className={`rm-dropdown-menu ${ open ? 'open' : '' }`} style={{top: 100 +'%'}}>
+                <div 
+                    className={`rm-dropdown-menu ${ open ? 'open' : '' }`} 
+                    style={{top: 100 +'%'}}
+                    onMouseLeave={this.toggleDropdown}>
                     <ul className="dropdown-operation">
                         { options }
                     </ul>
@@ -100,12 +105,12 @@ class MultiSelect extends React.Component {
     }
 }
 
-/* MultiSelect.propTypes = {
-    type,
-    options,
-    label,
-    changeHandler,
-    groupName
-} */
+MultiSelect.propTypes = {
+    type: PropTypes.oneOf([CHECKBOX, RADIO]),
+    options: PropTypes.array,
+    label: PropTypes.string,
+    changeHandler: PropTypes.func,
+    groupName: PropTypes.string
+}
 
 export default MultiSelect;

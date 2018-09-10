@@ -2,7 +2,7 @@ import './Reservations.css';
 import React from 'react';
 
 import moment from 'moment';
-import { STATUS, SORTBY_NAME, SORTBY_GUESTS } from '../../../constants/appConstants';
+import { STATUS, SORTBY_NAME, SORTBY_GUESTS, SHIFT } from '../../../constants/appConstants';
 
 class Reservations extends React.Component {
     handleGuestClick = (e) => {
@@ -27,10 +27,10 @@ class Reservations extends React.Component {
                 <th>Date</th>
                 <th>Shift</th>
                 <th>
-                    <a href="#" onClick={this.handleGuestClick}>Guest Number</a>
+                    <a href="#" onClick={this.handleGuestClick}>Guest Number <i className="fas fa-sort"></i></a>
                 </th>
                 <th>
-                    <a href="#" onClick={this.handleNameClick}>Guest Name</a>
+                    <a href="#" onClick={this.handleNameClick}>Guest Name <i className="fas fa-sort"></i></a>
                 </th>
                 <th>Area</th>
                 <th>Guest Notes</th>
@@ -53,9 +53,9 @@ class Reservations extends React.Component {
                 area,
                 guestNotes
             } = r;
-            const stat = STATUS.filter(s => {
-                return s.key === status ? s.key : null;
-            });
+            const stat = STATUS.filter(s => s.key === status ? s.key : null);
+            const shifts = SHIFT.filter(s => s.key === shift ? s : null);
+            const { displayName: shiftName } = shifts[0];
             const { displayName, className } = stat[0];
 
             return (
@@ -68,7 +68,7 @@ class Reservations extends React.Component {
                         <span className="status-value">{ displayName }</span>
                     </td>
                     <td>{ businessDate }</td>
-                    <td>{ `${moment(start).format('HH:mm')} ${shift}` }</td>
+                    <td>{ `${moment(start).format('HH:mm')} ${shiftName}` }</td>
                     <td>{ quantity }</td>
                     <td>{ `${lastName}, ${firstName}` }</td>
                     <td>{ area }</td>

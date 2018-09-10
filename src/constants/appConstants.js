@@ -1,3 +1,5 @@
+export const RADIO = 'radio';
+export const CHECKBOX = 'checkbox';
 export const SORTBY_NAME = 'name';
 export const SORTBY_GUESTS = 'guests'
 export const STATUS = [
@@ -26,7 +28,34 @@ export const STATUS = [
         color: '#F8B333'
     }
 ]
-
+export const SHIFT = [
+    {
+        key: 'BREAKFAST',
+        displayName: 'Breakfast'
+    },
+    {
+        key: 'LUNCH',
+        displayName: 'Lunch' 
+    },
+    {
+        key: 'DINNER',
+        displayName: 'Dinner'
+    },
+];
+export const AREA = [
+    {
+        key: 'ALL',
+        displayName: 'All' 
+    },
+    {
+        key: 'BAR',
+        displayName: 'Bar'
+    },
+    {
+        key: 'MAIN ROOM',
+        displayName: 'Main room'
+    },
+]
 export const MENU = [
     {
         key: 'logo',
