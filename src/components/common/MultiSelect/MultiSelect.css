@@ -17,6 +17,7 @@
 .criteria-list .aui-button {
     padding: 10px;
     width: 100%;
+    font-size: 14px;
 }
 
 .aui-button, a.aui-button, .aui-button:visited {
